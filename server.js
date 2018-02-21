@@ -9,7 +9,7 @@ app.use(morgan('combined'));
 
 var articles={
  'article-one':{
-        title:'ARTICLE-ONE |SHREYA AGLAVE',
+        title:'ARTICLE-ONE | SHREYA AGLAVE',
         heading:'ARTICLE ONE',
         date: '19 FEB 2018',
         content:` <p>
@@ -25,7 +25,7 @@ var articles={
                   </p>`
     },
  'article-two':{
-      title:'ARTICLE-TWO |SHREYA AGLAVE',
+      title:'ARTICLE-TWO | SHREYA AGLAVE',
         heading:'ARTICLE TWO',
         date: '19 FEB 2018',
         content:` <p>
@@ -35,7 +35,7 @@ var articles={
                   
  },
  'article-three':{
-     title:'ARTICLE-THREE |SHREYA AGLAVE',
+        title:'ARTICLE-THREE | SHREYA AGLAVE',
         heading:'ARTICLE THREE',
         date: '20 FEB 2018',
         content:` <p>
@@ -86,6 +86,12 @@ function createTemplate(data){
         `;
         return htmlTemplate;
 }
+
+var counter=0;
+app.get('/counter', function (req, res){
+    counter=counter + 1;
+  res.sendFile(counter.toString());
+});
 
 app.get('/', function (req, res){
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
